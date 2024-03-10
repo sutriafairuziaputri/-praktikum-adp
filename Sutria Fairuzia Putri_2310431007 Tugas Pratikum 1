@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+float Fisika_Dasar, Kimia_Dasar, Bahasa_Inggris, Pengantar_Matematika, Kalkulus_1, Analisis_Data, Agama, Bahasa_Indonesia,IP,a,b,sks;
+
+int main() {
+	a=2; b=3; sks=19;
+	cout<<"\n TUGAS MODUL 1 NO 1 SHIFT 2\n";
+	cout<<"\n Nama : Sutria Fairuzia Putri\n";
+	cout<<"\n NIM : 2310431007\n";
+	
+	cout<<"\n                                                   Data Mata Kuliah Semester Satu\n";
+	cout<<" Fisika Dasar         = ";cin>>Fisika_Dasar; 
+	cout<<" Kimia Dasar          = ";cin>>Kimia_Dasar; 
+	cout<<" Bahasa Inggris       = ";cin>>Bahasa_Inggris;
+	cout<<" Pengantar Matematika = ";cin>>Pengantar_Matematika;
+	cout<<" Kalkulus             = ";cin>>Kalkulus_1;
+	cout<<" Analisis Data        = ";cin>>Analisis_Data;
+	cout<<" Agama                = ";cin>>Agama;
+	cout<<" Bahasa Indonesia     = ";cin>>Bahasa_Indonesia;
+	IP = ((Fisika_Dasar*a)+(Kimia_Dasar*a)+(Bahasa_Inggris*a)+(Pengantar_Matematika*b)+(Kalkulus_1*b)+(Analisis_Data*b)+(Agama*a)+(Bahasa_Indonesia*a))/sks; 
+	
+	cout<<endl<<"IP = "<<IP;
+	
+}
+
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+float sisi, tinggi_limas, volume, tinggi_segitiga,luas_permukaan;
+
+int main() {
+	cout<<"\n TUGAS MODUL 1 NO 1 SHIFT 2\n";
+	cout<<"\n Nama : Sutria Fairuzia Putri\n";
+	cout<<"\n NIM : 2310431007\n";
+	
+	cout<<"\n                                  Program Mencari Luas Permukaan dan Volume Limas Segi Empat\n";
+
+	cout<<" panjang sisi =";cin>>sisi;
+	cout<<" tinggi limas =";cin>>tinggi_limas;
+	
+	volume = 0.33333*sisi*sisi*tinggi_limas;
+	tinggi_segitiga = (sqrt((tinggi_limas*tinggi_limas)+((0.5*sisi)*(0.5*sisi))));
+	luas_permukaan = (sisi*sisi)+(4*(0.5*sisi*tinggi_segitiga));
+	
+	
+	cout<<endl<<"Jadi volume limas segiempat adalah = "<<volume<<" dan luas permukaanya adalah="<<luas_permukaan;
+}
