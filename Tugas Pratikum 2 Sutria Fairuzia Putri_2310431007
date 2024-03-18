@@ -1,0 +1,119 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    string Tujuan, Kelas;
+ 
+    string Padang = "Padang", Medan = "Medan", Jambi = "Jambi", Pekanbaru = "Pekanbaru", Payakumbuh = "Payakumbuh", Jakarta = "Jakarta", Ekonomi = "Ekonomi", Bisnis = "Bisnis", First = "First";
+
+    float Harga , Biaya , Total, Diskon, Harga_Diskon, Harga_Setelah_Diskon;
+    int Jumlah;
+
+    cout << "\n TUGAS MODUL 2  SHIFT 2\n";
+    cout << "\n Nama : Sutria Fairuzia Putri\n";
+    cout << "\n NIM : 2310431007\n";
+
+    cout << "\n                                                   BUS PT ANS LINTAS SUMATERA\n";
+    cout << "\nTUJUAN\n";
+    cout << "\nPadang     = 80000\n";
+    cout << "\nMedan      = 150000\n";
+    cout << "\nJambi      = 500000\n";
+    cout << "\nPekanbaru  = 500000\n";
+    cout << "\nPayakumbuh = 60000\n";
+    cout << "\nJakarta    = 800000\n";
+    cout << "\n\nKELAS ( Biaya Tambahan)\n";
+    cout << "\nEkonomi Class = 10000\n";
+    cout << "\nBisnis Class  = 20000\n";
+    cout << "\nFirst Class   = 30000\n\n";
+    
+   
+    cout << "Tujuan       = ";cin >> Tujuan;
+    if (Tujuan == Padang) {Harga = 80000;
+	}else if (Tujuan == Medan){Harga=150000;
+	}else if (Tujuan == Jambi||Tujuan==Pekanbaru){Harga=500000;
+	}else if (Tujuan == Payakumbuh){Harga=60000;
+	}else if (Tujuan == Jakarta){Harga=800000;
+	}
+
+    cout << "Kelas        = ";cin >> Kelas;
+    if (Kelas == Ekonomi) { Biaya = 10000;
+	}if (Kelas == Bisnis){Biaya = 20000;
+	}if (Kelas == First){Biaya = 30000;
+	}
+
+    cout << "Jumlah Tiket = ";cin >> Jumlah;
+    if (Jumlah>=3){Diskon = 0.05; 
+	}else if (Jumlah>=5){Diskon = 0.1; 
+	}
+	Total = ( Harga + Biaya)*Jumlah;
+	Harga_Diskon = Total*Diskon; 
+	Harga_Setelah_Diskon = Total - Harga_Diskon;
+	
+    cout << "Total                = Rp" << Total ; 
+    cout << "\nHarga Diskon         = Rp" << Harga_Diskon;
+    cout << "\nTotal Setelah Diskon = Rp" << Harga_Setelah_Diskon<<endl; 
+
+}
+
+
+
+
+
+print ("Tugas Pratikum Modul 2 Shift 2")
+print ("Nama = Sutria Fairuzia Putri")
+print ("NIM = 2310431007")
+print ("Shift = 2")
+
+print (   " BUS PT ANS LINTAS SUMATERA")
+print ("--------------Tujuan------------")
+print (""" 
+        Padang    = 80000
+        Medan     = 150000
+        Jambi     = 500000
+        Pekanbaru = 500000
+        Payakumbuh= 60000
+        Jakarta   = 800000""")
+print ("---------------Kelas-------------")
+print ("""
+        Ekonomi = 10000
+        First   = 20000
+        Bisnis  = 30000""")
+
+
+
+Tujuan=str(input ("Tujuan="))
+if Tujuan=="Padang": 
+    Harga = 80000
+elif Tujuan=="Medan": 
+    Harga = 150000
+elif Tujuan=="Jambi": 
+    Harga =500000
+elif Tujuan=="Pekanbaru": 
+    Harga = 500000
+elif Tujuan=="Payakumbuh": 
+    Harga = 60000
+elif Tujuan=="Jakarta": 
+    Harga = 800000
+
+
+Kelas=str(input("Kelas="))
+if Kelas=="Ekonomi": 
+    Biaya = 10000
+elif Kelas=="First": 
+    Biaya = 20000
+elif Kelas=="Bisnis": 
+    Biaya = 30000
+
+Jumlah_Tiket=int(input("Jumlah Tiket="))
+if Jumlah_Tiket>=3: Diskon=0.05 
+elif Jumlah_Tiket>=5: Diskon=0.1
+
+Total = ( Harga + Biaya ) * Jumlah_Tiket
+Harga_Diskon = ( Total * Diskon )
+Harga_Setelah_Diskon = (Total - Diskon )
+
+print("Total=Rp ", Total)
+print("Harga Diskon =Rp ", Harga_Diskon)
+print("Harga Setelah Diskon=Rp ", Harga_Setelah_Diskon)
+
