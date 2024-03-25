@@ -1,0 +1,31 @@
+int main (){
+	int  n, f1, f2, fn, total;
+	
+	f1=1; f2=0; total=1; 
+	
+	cout<<"\n TUGAS MODUL 1 NO 1 SHIFT 2\n";
+	cout<<"\n Nama : Sutria Fairuzia Putri\n";
+	cout<<"\n NIM : 2310431007\n";
+	
+	cout<<"\n                                                   Program Perulangan Fibonaci\n";
+	
+	while (true){
+	 
+	 cout<<"Masukkan nilai n = ";cin>>n;
+	
+	
+		if ((3<=n && n<=100) || (109<=n && n<=100)){
+			for (int i=1; i< n; i++){
+				cout<< f1 <<"\n";
+				fn = f1 + f2 ; 
+				f2 = f1; 
+				f1 = fn;
+				total+=fn;
+			}
+			cout<< f1 <<"\n";
+			cout<< "total ="<< total <<endl; break;
+		}else {cout<<" ulangi \n" << endl;
+		}
+	}
+	return 0; 
+}
