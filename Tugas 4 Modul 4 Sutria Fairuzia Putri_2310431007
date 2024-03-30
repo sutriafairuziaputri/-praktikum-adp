@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+string lirik, hasil; 
+
+int main (){
+
+	cout<<"\n TUGAS MODUL 4  SHIFT 2\n";
+	cout<<"\n Nama : Sutria Fairuzia Putri\n";
+	cout<<"\n NIM : 2310431007\n";
+	
+	cout<<"\n Masukkan Lirik = "; getline(cin,lirik);
+	hasil=lirik;
+	
+	for(int i=0; i<lirik.length(); i++){
+		
+		if (lirik[i]=='a'|| lirik[i] == 'i' ||
+		lirik[i] =='u'   || lirik[i] == 'e' ||
+		lirik[i] =='o'   || lirik[i] == 'A' ||
+		lirik[i] =='I'   || lirik[i] == 'U' ||
+		lirik[i] =='E'   || lirik[i] == 'O') {hasil[i]='i';
+		}
+	} 
+	cout<<"Hasil="<<hasil<<endl;
+} 
