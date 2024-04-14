@@ -1,0 +1,99 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main(){
+	char Pilihan;
+	int n; 
+	
+	cout<<"\n TUGAS MODUL 5 SHIFT 2\n";
+	cout<<"\n Nama : Sutria Fairuzia Putri\n";
+	cout<<"\n NIM : 2310431007\n";
+	
+	cout<<endl;
+	
+	Pilihan = 'Y';
+	while (toupper (Pilihan) == 'Y'){
+		
+		cout<<"|     Tabel Fungsi               |\n";
+		cout<<"|f(x) = 3x^2 + 7x - 2 , x>=0     |" << endl;
+		cout<<"|f(x) = 2x^2 - 5x - 4 , x< 0     |" << endl; 
+        cout<<"|g(x) = f(x)^2-sqrt(f(x))        |" << endl;
+        cout<<"|h(x) = f(x) * g(x)              |" << endl;
+        
+        cout<<"\nBanyak data n : ";cin>>n; 
+        
+        int f[n], g[n], h[n], x[n]; 
+        
+        for (int i=0; i<n; i++){
+        	cout<<"input nilai x "<< i+1<<":";cin>>x[i];
+		}
+		
+		for ( int i=0; i<n; i++){
+			if (x[i]>=0){f[i] = 3 * x[i] * x[i] + 7 * x[i] - 2;
+			
+			}else {f[i] = 2 * x[i] * x[i] - 5 * x[i] - 4; 
+			}
+            g[i] = f[i]*f[i]-sqrt(f[i]);
+            h[i] = f[i] * g[i];
+		}
+		
+		cout << "________________________________" << endl;
+        cout << "| No  | x | f(x) | g(x) | h(x) |" << endl;
+        cout << "|-----|---|------|------|------|" << endl;
+        
+        for (int i=0; i<n; i++) {
+            cout << "|  " <<setw(1)<< i+1 << "  | " <<setw(1)<< x[i] << " | " <<setw(4)<< f[i] << " | " <<setw(4)<< g[i] << " | " <<setw(4)<< h[i] << " |" << endl;
+        }
+        
+        cout << "|-----|---|------|------|------|" << endl;
+        cout << "Input nilai X lagi? (Y/N) ";
+        cin >> Pilihan;
+		
+	}
+}
+
+
+
+
+
+print ("Tugas Pratikum Modul 5 Shift 2")
+print ("Nama = Sutria Fairuzia Putri")
+print ("NIM = 2310431007")
+print ("Shift = 2")
+
+import math
+
+pilihan = 'Y'
+while pilihan.upper() == 'Y':
+    print("|     Tabel Fungsi               |")
+    print("|f(x) = 3x^2 + 7x - 2 , x>=0     |")
+    print("|f(x) = 2x^2 - 5x - 4 , x< 0     |")
+    print("|g(x) = f(x)^2-sqrt(f(x))        |")
+    print("|h(x) = f(x) * g(x)              |")
+    
+    n = int(input("Banyak data n : "))
+    x = [n] * n
+    f = [n] * n
+    g = [n] * n
+    h = [n] * n
+
+    for i in range(n):
+        x[i] = int(input(f"input nilai x {i+1}: "))
+        if x[i] >= 0:
+            f[i] = 3 * x[i]*x[i] + 7 * x[i] - 2
+        else:
+            f[i] = 2 * x[i]*x[i] - 5 * x[i] - 4
+        g[i] = f[i]*f[i] - math.sqrt(f[i])
+        h[i] = f[i] * g[i]
+
+    print("________________________________")
+    print("| No  | x | f(x) | g(x) | h(x) |")
+    print("|-----|---|------|------|------|")
+    
+    for i in range(n):
+        print("|  {:<3} | {:<2} | {:<5} | {:<5} | {:<5} |".format(i+1, x[i], f[i], g[i], h[i]))
+    
+    print("|-----|---|------|------|------|")
+    pilihan = input("Input nilai X lagi? (Y/N) ")
