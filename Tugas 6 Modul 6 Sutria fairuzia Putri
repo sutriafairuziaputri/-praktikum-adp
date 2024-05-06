@@ -1,0 +1,62 @@
+print ("Data Nilai Ujian Mahasiswa")
+
+n = int (input("Jumlah Mahasiswa : "))
+m = int (input("Jumlah Mata Kuliah :"))
+
+nilai=[]
+nama_mahasiswa=[]
+print("------------------Data Nilai Mahasiswa--------------------------")
+for i in range (n) :
+    baris=[]
+    nama = (input(f"Nama Mahasiswa {i+1}= "))
+    nama_mahasiswa.append(nama)
+    for j in range (m):
+        entri = int(input(f"Masukkan nilai mata kuliah ke-{j+1}: "))
+        baris.append(entri)
+    nilai.append(baris)
+
+print("________________________________________________________________")
+print("|                   DATA NILAI UJIAN MAHASISWA                 |")
+print("----------------------------------------------------------------")
+print("No. |", end="")
+
+for i in range (m):
+    print(f"{ nama_mahasiswa[i]:^17} |", end="")
+print()
+
+print("-----------------------------------------------------------------")
+for i in range(n):
+    print(f"{i+1:<4}|", end="")
+    for j in range(m):
+        print(f" {nilai[i][j]:^16} |", end="")
+    print()
+print("-----------------------------------------------------------------")
+
+rata_rata_nilai_mahasiswa = []
+
+for i in range(n):
+    total_nilai = sum(nilai[i])
+    rata_rata = total_nilai / m
+    rata_rata_nilai_mahasiswa.append(rata_rata)
+
+print("Rata-rata |", end="")
+for nilai in rata_rata_nilai_mahasiswa:
+    print(f"{nilai:^17.2f} |", end="")
+print()
+
+nilai_tertinggi = rata_rata_nilai_mahasiswa[0]
+nilai_terendah = rata_rata_nilai_mahasiswa[0]
+
+nama_tertinggi = nama_mahasiswa[0]
+nama_terendah = nama_mahasiswa[0]
+
+for i in range(1, n):
+    if rata_rata_nilai_mahasiswa[i] > nilai_tertinggi:
+        nilai_tertinggi = rata_rata_nilai_mahasiswa[i]
+        nama_tertinggi = nama_mahasiswa[i]
+    if rata_rata_nilai_mahasiswa[i] < nilai_terendah:
+        nilai_terendah = rata_rata_nilai_mahasiswa[i]
+        nama_terendah = nama_mahasiswa[i]
+
+print(f"Nilai tertinggi adalah {nilai_tertinggi} untuk mahasiswa {nama_tertinggi}.")
+print(f"Nilai terendah adalah {nilai_terendah} untuk mahasiswa {nama_terendah}.")
