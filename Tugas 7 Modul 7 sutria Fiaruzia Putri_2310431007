@@ -1,0 +1,52 @@
+suhu = int(input("Masukkan Suhu (antara 0-100) = "))
+satuan_suhu = str(input("Masukkan satuan derajatnya (celcius, fahrenheit, reamur, kelvin)= "))
+print("..................................................................")
+if suhu>=0 | suhu<=100:
+    print("Suhu {} derajat {} dapat dikonversi menjadi:".format(suhu, satuan_suhu))
+    def konversi_suhu(suhu, arah) :
+        if arah == "C":
+            if satuan_suhu == "celcius":
+                return suhu
+            if satuan_suhu == "reamur":
+                return suhu*(5/4)
+            if satuan_suhu == "fahrenheit":
+                return suhu*(9/5)+32
+            if satuan_suhu == "kelvin":
+                return suhu+273
+        if arah == "R":
+            if satuan_suhu == "celcius":
+                return suhu*(4/5)
+            if satuan_suhu == "reamur":
+                return suhu
+            if satuan_suhu == "fahrenheit":
+                return suhu*(9/4)+32
+            if satuan_suhu == "kelvin":
+                return suhu*(5/4)+273
+        if arah == "F":
+            if satuan_suhu == "celcius":
+                return suhu*(5/9)-32
+            if satuan_suhu == "reamur":
+                return suhu*(4/9)-32
+            if satuan_suhu == "fahrenheit":
+                return suhu
+            if satuan_suhu == "kelvin":
+                return suhu*(5/9)+32-273
+        if arah == "K":
+            if satuan_suhu == "celcius":
+                return suhu-273
+            if satuan_suhu == "reamur":
+                return suhu*(4/5)-273
+            if satuan_suhu == "fahrenheit":
+                return suhu*(9/5)-273+32
+            if satuan_suhu == "kelvin":
+                return suhu
+    print("..................................................................")
+    print("|\t Satuan Suhu \t\t|\t Derajat Suhu \t\t|")
+    print("==================================================================")
+    print("|\t celcius \t\t|\t", konversi_suhu(suhu,"C"), "\t\t\t|")
+    print("|\t Reamur \t\t|\t", konversi_suhu(suhu,"R"), "\t\t\t|")
+    print("|\t Fahreinheit \t\t|\t", konversi_suhu(suhu,"F"),"\t\t\t|")
+    print("|\t Kelvin \t\t|\t",  konversi_suhu(suhu,"K"), "\t\t\t|")
+    print("==================================================================")    
+else :
+   print("Suhu yang anda inputkan tidak sesuai!!")
