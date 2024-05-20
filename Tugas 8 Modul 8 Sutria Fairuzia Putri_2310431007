@@ -1,0 +1,72 @@
+NAMA_FILE = "Data_buku.txt"
+
+def baca_data():
+    with open(NAMA_FILE, "r") as file:
+        lines = file.readlines()
+    buku = []
+    for line in lines:
+        judul, penulis, penerbit, tahun_terbit = line.strip().split(",")
+        buku.append({
+            "judul": judul,
+            "penulis": penulis,
+            "penerbit": penerbit,
+            "tahun_terbit": tahun_terbit
+        })
+    return buku
+
+def tulis_data(buku):
+    with open(NAMA_FILE, "w") as file:
+        for b in buku:
+            file.write(f"{b['judul']},{b['penulis']},{b['penerbit']},{b['tahun_terbit']}\n")
+
+def tambah_buku(judul, penulis, penerbit, tahun_terbit):
+    buku = baca_data()
+    buku.append({
+        "judul": judul,
+        "penulis": penulis,
+        "penerbit": penerbit,
+        "tahun_terbit": tahun_terbit
+    })
+    tulis_data(buku)
+    print("Data buku telah ditambahkan.")
+
+def hapus_buku(judul):
+    buku = baca_data()
+    buku = [b for b in buku if b["judul"] != judul]
+    tulis_data(buku)
+    print("Data buku telah dihapus.")
+
+def tampilkan_buku():
+    buku = baca_data()
+    if not buku:
+        print("Tidak ada data buku.")
+        return
+    print(f"{'Judul':<30} {'Penulis':<20} {'Penerbit':<20} {'Tahun Terbit':<15}")
+    print("-" * 85)
+    for b in buku:
+        print(f"{b['judul']:<30} {b['penulis']:<20} {b['penerbit']:<20} {b['tahun_terbit']:<15}")
+
+
+while True:
+    print("\nMenu:")
+    print("1. Tambah Buku")
+    print("2. Hapus Buku")
+    print("3. Tampilkan Buku")
+    print("4. Keluar")
+    pilihan = input("Pilih menu (1-4): ")
+
+    if pilihan == '1':
+        judul = input("Masukkan judul buku: ")
+        penulis = input("Masukkan nama penulis: ")
+        penerbit = input("Masukkan penerbit: ")
+        tahun_terbit = input("Masukkan tahun terbit: ")
+        tambah_buku(judul, penulis, penerbit, tahun_terbit)
+    elif pilihan == '2':
+        judul = input("Masukkan judul buku yang ingin dihapus: ")
+        hapus_buku(judul)
+    elif pilihan == '3':
+        tampilkan_buku()
+    elif pilihan == '4':
+        break
+    else:
+        print("Pilihan tidak valid. Silakan coba lagi.")
