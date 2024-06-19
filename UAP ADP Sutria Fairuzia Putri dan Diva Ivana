@@ -1,0 +1,102 @@
+import os
+import time
+from termcolor import colored, cprint 
+
+Supermarket_Difa = "Difa.txt"
+
+def baca_data():
+    with open (Supermarket_Difa, "a") as file:
+        pass
+    with open (Supermarket_Difa, "r") as file:
+        lines = file.readlines()
+    belanja = []
+    for line in lines:
+        nama_barang, jumlah, harga, total = line.strip().split(",")
+        belanja.append({
+            "nama_barang": nama_barang,
+            "jumlah": int(jumlah),
+            "harga": float(harga),
+            "total": float(total)
+        })
+    return belanja
+
+def tulis_data(belanja):
+    with open (Supermarket_Difa, "w") as file:
+        for b in belanja:
+            file.write(f"{b['nama_barang']},{b['jumlah']},{b['harga']},{b['total']}\n")
+
+def tambah_belanja(nama_barang, jumlah, harga, total):
+    belanja = baca_data() 
+    jumlah = int(jumlah)
+    harga = float(harga)
+    total = jumlah * harga
+    belanja.append({
+        "nama_barang": nama_barang,
+        "jumlah": jumlah,
+        "harga": harga,
+        "total": total
+    })
+    tulis_data(belanja)
+    print("Data belanja telah ditambahkan.")
+
+def tampilkan_belanja():
+    belanja = baca_data()
+    if not belanja:
+        print("Keranjang anda kosong !!!!.")
+        return
+    cprint(colored(f"{'Nama Barang':<20} {'Jumlah':<15} {'Harga':<15} {'Total':<15}","white","on_green"))
+    cprint(colored("-" * 68,"white","on_light_green"))
+    for b in belanja:
+        cprint(colored(f"{b['nama_barang']:<20} {b['jumlah']:<15} {b['harga']:<15} {b['total']:<15}","white","on_green"))
+
+    total_belanja = 0
+    for b in belanja:
+        total_belanja += b['total']
+    cprint(colored("-" * 68,"white","on_light_green"))
+    cprint(colored(f"{'Total Semua Belanja':<50} Rp{total_belanja:<15,.2f}","white","on_red"))
+    
+def hapus_data(nama_barang):
+    belanja = baca_data()
+    belanja_baru = [b for b in belanja if b["nama_barang"] != nama_barang]
+    if belanja != belanja_baru:
+        tulis_data(belanja_baru)
+        print("Barang anda sudah dibatalkan.")
+    else:
+        print("Data tidak valid, barang tidak ditemukan di keranjang.")
+
+def hapus_semua_data():
+    open(Supermarket_Difa, "w").close()
+
+while True:
+    os.system('cls')
+    cprint(" "*44, 'white', 'on_red', end="")
+    cprint(colored("\n •ᴗ• Selamat Datang di Supermarket Difa •ᴗ• ", 'black', 'on_blue'))
+    cprint(" "*44, 'white', 'on_light_yellow', end="\n")
+    print(colored("\nMenu:", "magenta"))
+    print(colored("1. Tambahkan Barang ke Keranjang ", "magenta"))
+    print(colored("2. Lihat keranjang","magenta"))
+    print(colored("3. Hapus Barang di Keranjang","magenta"))
+    print(colored("4. Selesai","magenta"))
+    pilihan = input(colored("Pilih menu (1-4): ","blue"))
+
+    if pilihan == '1':
+        nama_barang = input("Masukkan nama barang: ")
+        jumlah = int(input("Masukkan jumlah barang: "))
+        harga = float(input("Masukkan harga barang: "))
+        total = float(jumlah * harga) 
+        tambah_belanja(nama_barang, jumlah, harga, total)
+        time.sleep(2)
+    elif pilihan == '2':
+        tampilkan_belanja()
+        input("\nTekan Enter untuk kembali ke menu utama....")
+    elif pilihan == '3':
+        nama_barang = input("Masukkan nama barang yang ingin dihapus: ")
+        hapus_data(nama_barang)
+        time.sleep(2)
+    elif pilihan == '4':
+        print(" \nTERIMAKASIH TELAH BERBELANJA DI SUPERMARKET DIFA •ᴗ• \n")
+        hapus_semua_data()
+        break
+    else:
+        print("Pilihan tidak valid. Silakan coba lagi.")
+        time.sleep(2)
